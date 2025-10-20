@@ -31,6 +31,4 @@ Recommended setup:
   - 🧩 *HTML CSS Support* – for smart autocompletion  
   - 🪄 *JavaScript (ES6) Code Snippets* – to boost productivity  
 
----
-
 

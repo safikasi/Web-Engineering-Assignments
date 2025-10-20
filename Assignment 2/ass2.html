@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <link rel="stylesheet" href="ass2.css">
+</head>
+<body>
+    <header role="banner">
+        <h1>Student Registration Form</h1>
+        <p class="subtitle">Please fill out all required fields to complete your registration</p>
+    </header>
+
+    <main role="main">
+        <!-- Progress indicator -->
+        <div class="progress-container" aria-label="Form completion progress">
+            <div class="progress-bar">
+                <div class="progress" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <span class="progress-text">Step 2 of 3</span>
+        </div>
+
+        <div class="form-container">
+            <form id="student-registration" action="#" method="post" enctype="multipart/form-data" novalidate>
+                <!-- Personal Information Section -->
+                <fieldset>
+                    <legend>Personal Information</legend>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name" class="required">First Name</label>
+                            <input type="text" id="first-name" name="first-name" required 
+                                   aria-required="true" placeholder="Enter your first name"
+                                   aria-describedby="first-name-help">
+                            <div id="first-name-help" class="helper-text">Enter your legal first name</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="last-name" class="required">Last Name</label>
+                            <input type="text" id="last-name" name="last-name" required 
+                                   aria-required="true" placeholder="Enter your last name"
+                                   aria-describedby="last-name-help">
+                            <div id="last-name-help" class="helper-text">Enter your legal last name</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="student-id" class="required">Student ID</label>
+                        <input type="text" id="student-id" name="student-id" required 
+                               aria-required="true" pattern="[A-Za-z0-9]{6,12}" 
+                               placeholder="Enter your student ID"
+                               aria-describedby="student-id-help">
+                        <div id="student-id-help" class="helper-text">Must be 6-12 alphanumeric characters</div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date-of-birth" class="required">Date of Birth</label>
+                            <input type="date" id="date-of-birth" name="date-of-birth" required 
+                                   aria-required="true" aria-describedby="dob-help">
+                            <div id="dob-help" class="helper-text">Select your date of birth</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="required">Gender</label>
+                            <div class="radio-group" role="radiogroup" aria-labelledby="gender-label">
+                                <span id="gender-label" class="sr-only">Select your gender</span>
+                                <div class="radio-option">
+                                    <input type="radio" id="gender-male" name="gender" value="male" required>
+                                    <label for="gender-male">Male</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="gender-female" name="gender" value="female">
+                                    <label for="gender-female">Female</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="gender-other" name="gender" value="other">
+                                    <label for="gender-other">Other</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="gender-prefer-not" name="gender" value="prefer-not">
+                                    <label for="gender-prefer-not">Prefer not to say</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Contact Information Section -->
+                <fieldset>
+                    <legend>Contact Information</legend>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email" class="required">Email Address</label>
+                            <input type="email" id="email" name="email" required 
+                                   aria-required="true" placeholder="student@example.com"
+                                   aria-describedby="email-help">
+                            <div id="email-help" class="helper-text">We'll send confirmation to this email</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" class="required">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required 
+                                   aria-required="true" placeholder="(123) 456-7890"
+                                   pattern="[0-9\-\+\(\)\s]{10,}" aria-describedby="phone-help">
+                            <div id="phone-help" class="helper-text">Include area code</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address" class="required">Address</label>
+                        <textarea id="address" name="address" rows="4" required 
+                                  aria-required="true" placeholder="Enter your complete address"
+                                  aria-describedby="address-help"></textarea>
+                        <div id="address-help" class="helper-text">Include street, city, state, and ZIP code</div>
+                    </div>
+                </fieldset>
+
+                <!-- Academic Information Section -->
+                <fieldset class="full-width">
+                    <legend>Academic Information</legend>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="program" class="required">Program / Department</label>
+                            <select id="program" name="program" required aria-required="true"
+                                    aria-describedby="program-help">
+                                <option value="" disabled selected>Select your program</option>
+                                <optgroup label="Engineering">
+                                    <option value="computer-engineering">Computer Engineering</option>
+                                    <option value="electrical-engineering">Electrical Engineering</option>
+                                    <option value="mechanical-engineering">Mechanical Engineering</option>
+                                    <option value="civil-engineering">Civil Engineering</option>
+                                </optgroup>
+                                <optgroup label="Sciences">
+                                    <option value="computer-science">Computer Science</option>
+                                    <option value="biology">Biology</option>
+                                    <option value="chemistry">Chemistry</option>
+                                    <option value="physics">Physics</option>
+                                </optgroup>
+                                <optgroup label="Business">
+                                    <option value="business-administration">Business Administration</option>
+                                    <option value="accounting">Accounting</option>
+                                    <option value="marketing">Marketing</option>
+                                    <option value="finance">Finance</option>
+                                </optgroup>
+                                <optgroup label="Arts & Humanities">
+                                    <option value="english">English Literature</option>
+                                    <option value="history">History</option>
+                                    <option value="psychology">Psychology</option>
+                                    <option value="sociology">Sociology</option>
+                                </optgroup>
+                            </select>
+                            <div id="program-help" class="helper-text">Choose your primary field of study</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="year-semester" class="required">Year / Semester</label>
+                            <select id="year-semester" name="year-semester" required aria-required="true">
+                                <option value="" disabled selected>Select year/semester</option>
+                                <option value="year1-sem1">Year 1, Semester 1</option>
+                                <option value="year1-sem2">Year 1, Semester 2</option>
+                                <option value="year2-sem1">Year 2, Semester 1</option>
+                                <option value="year2-sem2">Year 2, Semester 2</option>
+                                <option value="year3-sem1">Year 3, Semester 1</option>
+                                <option value="year3-sem2">Year 3, Semester 2</option>
+                                <option value="year4-sem1">Year 4, Semester 1</option>
+                                <option value="year4-sem2">Year 4, Semester 2</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="required">Enrollment Type</label>
+                            <div class="radio-group" role="radiogroup" aria-labelledby="enrollment-label">
+                                <span id="enrollment-label" class="sr-only">Select enrollment type</span>
+                                <div class="radio-option">
+                                    <input type="radio" id="full-time" name="enrollment" value="full-time" required>
+                                    <label for="full-time">Full-time</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="part-time" name="enrollment" value="part-time">
+                                    <label for="part-time">Part-time</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="campus" class="required">Preferred Campus</label>
+                            <input type="text" id="campus" name="campus" list="campus-list" required 
+                                   aria-required="true" placeholder="Select or type your preferred campus"
+                                   aria-describedby="campus-help">
+                            <datalist id="campus-list">
+                                <option value="Main Campus">
+                                <option value="Downtown Campus">
+                                <option value="North Campus">
+                                <option value="South Campus">
+                                <option value="East Campus">
+                                <option value="West Campus">
+                                <option value="Online">
+                            </datalist>
+                            <div id="campus-help" class="helper-text">Start typing to see options</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="required">Courses to Register</label>
+                        <div class="checkbox-group" role="group" aria-labelledby="courses-label">
+                            <span id="courses-label" class="sr-only">Select courses to register</span>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="course-math" name="courses" value="math">
+                                <label for="course-math">Mathematics</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="course-physics" name="courses" value="physics">
+                                <label for="course-physics">Physics</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="course-chemistry" name="courses" value="chemistry">
+                                <label for="course-chemistry">Chemistry</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="course-biology" name="courses" value="biology">
+                                <label for="course-biology">Biology</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="course-computer" name="courses" value="computer">
+                                <label for="course-computer">Computer Science</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="course-english" name="courses" value="english">
+                                <label for="course-english">English</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="course-history" name="courses" value="history">
+                                <label for="course-history">History</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="course-economics" name="courses" value="economics">
+                                <label for="course-economics">Economics</label>
+                            </div>
+                        </div>
+                        <div class="helper-text">Select all courses you wish to enroll in</div>
+                    </div>
+                </fieldset>
+
+                <!-- Account Setup Section -->
+                <fieldset>
+                    <legend>Account Setup</legend>
+                    
+                    <div class="form-group">
+                        <label for="profile-photo">Profile Photo</label>
+                        <div class="file-upload" tabindex="0" role="button" aria-labelledby="file-upload-label">
+                            <span id="file-upload-label" class="sr-only">Upload profile photo</span>
+                            <input type="file" id="profile-photo" name="profile-photo" 
+                                   accept="image/png, image/jpeg, image/gif"
+                                   aria-describedby="photo-help">
+                            <div class="file-upload-content">
+                                <svg class="upload-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="2"/>
+                                    <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="2"/>
+                                    <line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="2"/>
+                                    <line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="2"/>
+                                    <polyline points="10,9 9,9 8,9" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                                <p>Click to upload or drag and drop</p>
+                                <p class="helper-text">PNG, JPG, GIF up to 5MB</p>
+                            </div>
+                        </div>
+                        <div id="photo-help" class="helper-text">Optional: Upload a recent photo for your student ID</div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="password" class="required">Password</label>
+                            <input type="password" id="password" name="password" required 
+                                   aria-required="true" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
+                                   placeholder="Create a strong password"
+                                   aria-describedby="password-help">
+                            <div id="password-help" class="helper-text">Minimum 8 characters with at least one uppercase, one lowercase, and one number</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="confirm-password" class="required">Confirm Password</label>
+                            <input type="password" id="confirm-password" name="confirm-password" required 
+                                   aria-required="true" placeholder="Re-enter your password"
+                                   aria-describedby="confirm-password-help">
+                            <div id="confirm-password-help" class="helper-text">Must match the password above</div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Agreement Section -->
+                <fieldset class="full-width">
+                    <legend>Terms and Conditions</legend>
+                    
+                    <div class="form-group">
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="agree-terms" name="agree-terms" required 
+                                   aria-required="true">
+                            <label for="agree-terms" class="required">I agree to the terms and conditions</label>
+                        </div>
+                        <div class="helper-text">
+                            By checking this box, you confirm that all information provided is accurate and you agree to abide by the university policies, code of conduct, and academic integrity standards.
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <label for="newsletter">I would like to receive university updates and newsletters</label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Form buttons -->
+                <div class="button-group">
+                    <button type="reset" class="btn-reset">Reset Form</button>
+                    <button type="submit" class="btn-submit">Submit Registration</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer role="contentinfo">
+        <p class="footer-text">
+            &copy; 2025 University Registration System. All rights reserved.
+        </p>
+    </footer>
+</body>
+</html>
